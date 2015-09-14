@@ -1,0 +1,52 @@
+﻿<Window x:Class="Sintpaleis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SintPaleis" Height="350" Width="750">
+    <DockPanel>
+        <DockPanel Name="header" DockPanel.Dock="Top" Height="25" HorizontalAlignment="Center"  Width="500">
+            <TextBlock Name="Trigger" Width="25" Height="25" FontSize="18" TextAlignment="Center" HorizontalAlignment="Left"></TextBlock>
+            <TextBlock x:Name="dateTime" Width="300" Height="25"  FontSize="18" HorizontalAlignment="Right" TextAlignment="Right"/>
+        </DockPanel>
+     
+        <Border  BorderThickness="3" CornerRadius="3" BorderBrush="DarkRed" DockPanel.Dock="Top"  HorizontalAlignment="Left" Margin="70,0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Color="Red" Offset="0"/>
+                        <GradientStop Color="Pink" Offset=".5"/>
+                        <GradientStop Color="Azure" Offset="1"/>
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Red"
+             Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="10" />
+            </Border.Effect>
+            <TextBlock Height="25" Width="250" DockPanel.Dock="Top"  TextAlignment="Center" FontSize="18"> Status TicketVerkoop</TextBlock>
+        </Border>
+        <DockPanel Height="5" DockPanel.Dock="Top"></DockPanel>
+        <Border BorderThickness="3" CornerRadius="3"
+        BorderBrush="DarkRed"
+        VerticalAlignment="Top" Margin="10,0">
+            
+            <DockPanel>
+                <StackPanel Name="stackLinks" Width="200"></StackPanel>
+                <StackPanel Name="stackMidden" Width="100"></StackPanel>
+                <StackPanel Name="stackRechts" Width="75"></StackPanel>
+            </DockPanel>
+        </Border>        
+        <StackPanel Name="stackImage">
+            <Image Name="sintPaleis" Source="pack://application:,,,/img/sintpaleis.png" Margin="10" MaxHeight="400" MaxWidth="400"/>
+            <Border BorderThickness="3" CornerRadius="3"
+        BorderBrush="DarkRed"
+        VerticalAlignment="Top" Width="375" HorizontalAlignment="Left" Margin="10,0">
+                <DockPanel >
+                    <StackPanel Name="stackLinks2" Width="200"></StackPanel>
+                    <StackPanel Name="stackMidden2" Width="100"></StackPanel>
+                    <StackPanel Name="stackRechts2" Width="75"></StackPanel>
+                </DockPanel>
+            </Border>
+        </StackPanel>
+    </DockPanel>
+
+</Window>
