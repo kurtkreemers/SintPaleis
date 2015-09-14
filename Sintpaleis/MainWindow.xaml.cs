@@ -141,10 +141,10 @@ namespace Sintpaleis
             TextBox tb1 = null;
             TextBox tb2 = null;
             TextBox castedChild = new TextBox();
-             tb1 =stackRechts.Children.OfType<TextBox>().Where(vrst => vrst.Name == "tb" + vrstelnr.ToString()).FirstOrDefault();
-             tb2 = stackRechts2.Children.OfType<TextBox>().Where(vrst => vrst.Name == "tb" + vrstelnr.ToString()).FirstOrDefault();
+            tb1 = stackRechts.Children.OfType<TextBox>().Where(vrst => vrst.Name == "tb" + vrstelnr.ToString()).FirstOrDefault();
+            tb2 = stackRechts2.Children.OfType<TextBox>().Where(vrst => vrst.Name == "tb" + vrstelnr.ToString()).FirstOrDefault();
 
-            if(tb1 != null)
+            if (tb1 != null)
                 castedChild = tb1;
             if (tb2 != null)
                 castedChild = tb2;
@@ -158,28 +158,28 @@ namespace Sintpaleis
             //        string tbName = castedChild.Name.Remove(0, 2);
             //        if (tbName == vrstelnr.ToString())
             //        {
-                        var vrstellist = (from vrstel in voorstellingen
-                                          where vrstel.Nummer == vrstelnr
-                                          select vrstel).ToList();
-                        Voorstelling voorstelMax = vrstellist[0];
-                        int ActueelWaarde = voorstelMax.Max - totaal;
-                        if (ActueelWaarde < 50 && ActueelWaarde > 25)
-                        {
-                            castedChild.Background = new SolidColorBrush(Colors.Yellow);
-                            castedChild.Text = (ActueelWaarde).ToString();
-                        }
-                        else if (ActueelWaarde <= 25 && ActueelWaarde > 0)
-                        {
-                            castedChild.Background = new SolidColorBrush(Colors.Orange);
-                            castedChild.Text = (ActueelWaarde).ToString();
-                        }
-                        else if (ActueelWaarde <= 0)
-                        {
-                            castedChild.Background = new SolidColorBrush(Colors.Red);
-                            castedChild.Text = "VOLZET";
-                        }
-                        //break;
-                    //}
+            Voorstelling voorstelMax = (from vrstel in voorstellingen
+                                        where vrstel.Nummer == vrstelnr
+                                        select vrstel).FirstOrDefault(); ;
+            //Voorstelling voorstelMax = vrstellist[0];
+            int ActueelWaarde = voorstelMax.Max - totaal;
+            if (ActueelWaarde < 50 && ActueelWaarde > 25)
+            {
+                castedChild.Background = new SolidColorBrush(Colors.Yellow);
+                castedChild.Text = (ActueelWaarde).ToString();
+            }
+            else if (ActueelWaarde <= 25 && ActueelWaarde > 0)
+            {
+                castedChild.Background = new SolidColorBrush(Colors.Orange);
+                castedChild.Text = (ActueelWaarde).ToString();
+            }
+            else if (ActueelWaarde <= 0)
+            {
+                castedChild.Background = new SolidColorBrush(Colors.Red);
+                castedChild.Text = "VOLZET";
+            }
+            //break;
+            //}
 
             //    }
             //}
@@ -210,7 +210,7 @@ namespace Sintpaleis
             //            }
             //            else if (ActueelWaarde <= 0)
             //            {
-    
+
             //                castedChild.Background = new SolidColorBrush(Colors.Red);
             //                castedChild.Text = "VOLZET";
             //            }
@@ -219,7 +219,7 @@ namespace Sintpaleis
 
             //    }
             //}
-    
+
         }
     }
 }
