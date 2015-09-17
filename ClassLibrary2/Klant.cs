@@ -10,7 +10,7 @@ namespace ClassLibrary2
     {
         private int nummerValue;
 
-        public int Nummer
+        public int VoorstelNummer
         {
             get { return nummerValue; }
             set { nummerValue = value; }
@@ -34,7 +34,7 @@ namespace ClassLibrary2
         
         public Klant(int vrstelnr, int aantalvolw,int aantalkind)
         {
-            this.Nummer = vrstelnr;
+            this.VoorstelNummer = vrstelnr;
             this.AantalVolw = aantalvolw;
             this.AantalKind = aantalkind;
         }
