@@ -56,6 +56,7 @@ namespace Sintpaleis
                     labelD.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                     labelD.Height = 40;
                     labelD.FontSize = 20;
+                    
 
                     Separator sepU = new Separator();
                     Label labelU = new Label();
@@ -126,12 +127,13 @@ namespace Sintpaleis
                         aantalPerKlant = 0;
                         foreach (var aantal in vrstel)
                         {
-                            aantalPerKlant = aantal.AantalVolw + aantal.AantalKind;
+                            aantalPerKlant = aantal.AantalVolw.Value + aantal.AantalKind.Value;
                             totaalAantalPerVoorst += aantalPerKlant;
                         }
                         vulTextBlock((int)vrstel.Key, totaalAantalPerVoorst);
                     }
                     timerClock -= 1;
+                    Trigger.Text = timerClock.ToString();
                 }
                 else if (timerClock != 0)
                 {
@@ -142,6 +144,7 @@ namespace Sintpaleis
                 {
                     timerClock = 30;
                     dateTime.Text = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+                    Trigger.Text = timerClock.ToString();
                 }
             }
             catch (Exception ex)
@@ -165,8 +168,9 @@ namespace Sintpaleis
             Voorstelling voorstelMax = (from vrstel in voorstellingen
                                         where vrstel.Nummer == vrstelnr
                                         select vrstel).FirstOrDefault(); ;
-
+            
             int ActueelWaarde = voorstelMax.Max - totaal;
+            vulTextBox.Text = (ActueelWaarde).ToString();
             if (ActueelWaarde < 50 && ActueelWaarde > 25)
             {
                 vulTextBox.Background = new SolidColorBrush(Colors.Yellow);
@@ -182,6 +186,16 @@ namespace Sintpaleis
                 vulTextBox.Background = new SolidColorBrush(Colors.Red);
                 vulTextBox.Text = "VOL";
             }
+           
+        }
+       
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Wilt u het programma afsluiten?", "AFSLUITEN", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.No)
+            {
+                e.Cancel=true;
+            }
+
         }
     }
 }

@@ -16,23 +16,23 @@ namespace ClassLibrary2
             set { nummerValue = value; }
         }
 
-        private int aantalVolwValue;
+        private int? aantalVolwValue;
 
-        public int AantalVolw
+        public int? AantalVolw
         {
             get { return aantalVolwValue; }
             set { aantalVolwValue = value; }
         }
-        private int aantalKindValue;
+        private int? aantalKindValue;
 
-        public int AantalKind
+        public int? AantalKind
         {
             get { return aantalKindValue; }
             set { aantalKindValue = value; }
         }
-        private int aantalBabyValue;
+    
         
-        public Klant(int vrstelnr, int aantalvolw,int aantalkind)
+        public Klant(int vrstelnr, int? aantalvolw,int? aantalkind)
         {
             this.VoorstelNummer = vrstelnr;
             this.AantalVolw = aantalvolw;

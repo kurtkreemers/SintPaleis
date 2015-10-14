@@ -1,63 +1,42 @@
 ﻿<Window x:Class="Sintpaleis.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="SintPaleis" WindowState="Maximized" Width="1500" Height="1500">
+        Title="SintPaleis" WindowState="Maximized" Width="1500" Height="1500" Closing="Window_Closing" >
     <DockPanel>
         <DockPanel Name="header" DockPanel.Dock="Top" Height="30" HorizontalAlignment="Right"  Width="500">
-            
             <TextBlock x:Name="dateTime" Width="400" Height="30"  FontSize="20" HorizontalAlignment="Right" TextAlignment="Right" Margin="0,0,20,0"/>
         </DockPanel>
-     
-        <Border  BorderThickness="3" CornerRadius="3" BorderBrush="DarkRed" DockPanel.Dock="Top"  HorizontalAlignment="Center"  Margin="70,0">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <LinearGradientBrush.GradientStops>
-                        <GradientStop Color="Red" Offset="0"/>
-                        <GradientStop Color="Pink" Offset=".5"/>
-                        <GradientStop Color="Azure" Offset="1"/>
-                    </LinearGradientBrush.GradientStops>
-                </LinearGradientBrush>
-            </Border.Background>
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="10" Color="Red"
-             Direction="45" Opacity=".4" RenderingBias="Performance" ShadowDepth="10" />
-            </Border.Effect>
+
+        <Border  BorderThickness="5" CornerRadius="5" BorderBrush="Red" DockPanel.Dock="Top"  HorizontalAlignment="Center"  Margin="70,0">
             <TextBlock Height="25" Width="250" DockPanel.Dock="Top"  TextAlignment="Center" FontSize="18"> Status TicketVerkoop</TextBlock>
         </Border>
-        <DockPanel Height="15" DockPanel.Dock="Top"></DockPanel>
-        <Border BorderThickness="3" CornerRadius="3"
-        BorderBrush="DarkRed"
-        VerticalAlignment="Top" Margin="20,0" HorizontalAlignment="Center">
-            
+        <DockPanel Height="20" DockPanel.Dock="Top"></DockPanel>
+        <Border BorderThickness="5" CornerRadius="3"  BorderBrush="DarkRed" VerticalAlignment="Top" Margin="20,0" HorizontalAlignment="Center">
             <DockPanel>
                 <StackPanel Name="stackLinks" Width="300"></StackPanel>
                 <StackPanel Name="stackMidden" Width="100"></StackPanel>
                 <StackPanel Name="stackRechts" Width="75"></StackPanel>
             </DockPanel>
-        </Border>        
-        <StackPanel Name="stackImage">          
-            <Border BorderThickness="3" CornerRadius="3"
-        BorderBrush="DarkRed"
-        VerticalAlignment="Top" Width="475" HorizontalAlignment="Left"  Margin="10,0">
-                <DockPanel >
-                    <StackPanel Name="stackLinks2" Width="300"></StackPanel>
-                    <StackPanel Name="stackMidden2" Width="100"></StackPanel>
-                    <StackPanel Name="stackRechts2" Width="75"></StackPanel>
-                </DockPanel>
-            </Border>
-        </StackPanel>
-        <StackPanel VerticalAlignment="Bottom" Height="450">
+        </Border>
 
+        <Border BorderThickness="5" CornerRadius="3" BorderBrush="DarkRed" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <DockPanel >
+                <StackPanel Name="stackLinks2" Width="300"></StackPanel>
+                <StackPanel Name="stackMidden2" Width="100"></StackPanel>
+                <StackPanel Name="stackRechts2" Width="75"></StackPanel>
+            </DockPanel>
+        </Border>
+
+        <StackPanel VerticalAlignment="Bottom" Height="450">
             <Image Name="sintPaleis" Source="pack://application:,,,/img/sintpaleis.png"  MaxHeight="500" MaxWidth="500" Margin="0,0,75,0">
                 <Image.RenderTransform>
                     <RotateTransform Angle="-25" />
                 </Image.RenderTransform>
             </Image>
-            <StackPanel Orientation="Horizontal">
-                <Label FontSize="30" VerticalAlignment="Center" Margin="100,0,0,20">Update binnen :</Label>
-                <TextBlock Name="Trigger" Width="100" Height="100" FontSize="50" TextAlignment="Center"  HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="10,0"></TextBlock>
-            </StackPanel>
-            
+            <DockPanel Width="AUTO" HorizontalAlignment="Left">
+                <Label FontSize="30" VerticalAlignment="Center">Update:</Label>
+                <TextBlock Name="Trigger"  FontSize="50" TextAlignment="Center" HorizontalAlignment="Left"  Margin="20,0"></TextBlock>
+            </DockPanel>
         </StackPanel>
     </DockPanel>
 

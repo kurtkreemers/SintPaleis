@@ -61,11 +61,21 @@ namespace ClassLibrary2
                         Int32 voorstelnrPos = rdrAccess.GetOrdinal("re_voorstelling");
                         Int32 aantalVolwPos = rdrAccess.GetOrdinal("re_aantal_volw");
                         Int32 aantalKindPos = rdrAccess.GetOrdinal("re_aantal_kind");
-                   
 
+                        Int32? aantalVolw;
+                        Int32? aantalKind;
                         while(rdrAccess.Read())
                         {
-                            klanten.Add(new Klant(rdrAccess.GetInt32(voorstelnrPos), rdrAccess.GetInt32(aantalVolwPos), rdrAccess.GetInt32(aantalKindPos)));
+                            if (rdrAccess.IsDBNull(aantalVolwPos))
+                                aantalVolw = 0;
+                            else
+                                aantalVolw = rdrAccess.GetInt32(aantalVolwPos);
+                            if (rdrAccess.IsDBNull(aantalKindPos))
+                                aantalKind = 0;
+                            else
+                                aantalKind = rdrAccess.GetInt32(aantalKindPos);
+
+                            klanten.Add(new Klant(rdrAccess.GetInt32(voorstelnrPos),aantalVolw ,aantalKind));
                         }
                        
                     }
